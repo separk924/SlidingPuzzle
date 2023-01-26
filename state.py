@@ -1,4 +1,6 @@
 import math
+
+
 class State:
     def __init__(self, x, y, value, neighbors=None):
         self.value = value
