@@ -1,18 +1,32 @@
-import math
+########################################################################
+# IMPORTS
+########################################################################
+from itertools import chain
 
-
-class State:
-    def __init__(self, x, y, value, neighbors=None):
-        self.value = value
-        self.x = x
-        self.y = y
-        self.heuristic_value = -1
-        self.distance_from_start = math.inf
-        if neighbors is None:
-            self.neighbors = []
-        else:
-            self.neighbors = neighbors
-            self.parent = None
+'''
+This class makes a constructor for the puzzle states
+'''
+class State():
+    # constructor
+    def __init__(self, prev=None, puz=None):
+        self.g = 0
+        self.h = 0
+        self.f = 0
+        self.prev = prev
+        self.puzzle = puz
+        self.move = None
+        self.gapI = None
+        self.gapJ = None
             
+    # override the equality operator
+    def __eq__(self, other):
+        return self.puzzle == other.puzzle
+    
+    # override the comparison operator
+    def __lt__(self, nxt):
+        return self.f < nxt.f
+    
+    # override hash function
     def __hash__(self):
-        return hash((self.value, self.x, self.y, self.heuristic_value, self.distance_from_start))
+        thePuz = list(chain.from_iterable(self.puzzle))
+        return hash((tuple(thePuz)))

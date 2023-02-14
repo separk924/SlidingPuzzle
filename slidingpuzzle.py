@@ -161,7 +161,7 @@ try:
 
 except:
     print("Warning: Could not find the tkinter module. Graphics disabled.", file=sys.stderr)
-    do_graphics = False
+    do_graphics = True
 
 # given some token from the file, cast it as an int or return 0 if it's a ./_/x
 def _parse_token(token):
@@ -203,7 +203,15 @@ with open(args[0]) as f:
     puzzle_data = [[_parse_token(x) for x in line.split()] for line in f]
 
 # solve the puzzle using the student's solve() inside of solver.py
+# delete this!!!
+import time
+start_time = time.time()
+# delete this!!!
+
 solution = solve(puzzle_data)
+# delete this!!!
+print("--- %s seconds ---" % (time.time() - start_time))
+# delete this!!!
 print("Solution: ", end="")
 if solution == None: print("Impossible!")
 else:
