@@ -211,7 +211,7 @@ def moveTile(curr, i, j, closed, open):
     if j == 1:
         newState.move = 'L'
     
-    if newState not in closed.keys() and newState not in open:
+    if newState not in closed.keys():
         heapq.heappush(open, newState)
 
 '''
