@@ -24,7 +24,6 @@ This program runs with Python 3 and requires these packages to be installed firs
 
 ## Usage
 
-Puzzle files that are in the directory are called easy.puz, impossible.puz, and square.puz
-Inside SlidingPuzzle directory run:
+Puzzle files that are in the directory are called easy.puz, impossible.puz, and square.puz. Inside SlidingPuzzle directory run:
 
     python3 slidingpuzzle.py easy.puz
